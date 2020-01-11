@@ -10,11 +10,11 @@ use FacebookAds\Logger\CurlLogger;
 
 class FacebookController extends Controller {
 
-    public function getpackagecampaign(Request $request){
-        $app_id = $_ENV['FACEBOOK_CLIENT_ID'];
-        $app_secret = $_ENV['FACEBOOK_CLIENT_SECRET'];
-        $access_token = $_ENV['FACEBOOK_TOKEN'];
+    public function getCampaign(Request $request){
         $id=$request->account_id;
+        $app_id=$request->app_id;
+        $app_secret=$request->app_secret;
+        $access_token=$request->access_token;
             
         $api = Api::init($app_id, $app_secret, $access_token);
         $api->setLogger(new CurlLogger());
